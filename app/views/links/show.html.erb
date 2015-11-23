@@ -1,19 +1,45 @@
-<div class="page-header">
-<h1><a href="<%= @link.url %>"><%= @link.title %></a><br>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-8">
+				
+				<div class="table-responsive">	
+							<table class="table">
+								<tbody>
+								<tr>
+									<td>	<h1>
+					<a href="<%= @link.url %>"><%= @link.title %></a>
+					<small> by <%= @link.user.email %> </small></h1>
+									</td>
 
-<small> by <%= @link.user.email %> </small></h1></div>
-</h1>
+								</tr>
+
+
+								<tr>
+  									<td><strong>Title:</strong>
+  									<%= @link.title %></td>
+								</tr>
+								<tr>					
+ 									<td><strong>Url:</strong>
+  									<%= @link.url %></td>
+								</tr>
+								<tr>
+									<td></td>
+								</tr>
+								</tbody>
+
+
+
+
+							</table>
+						
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @link.title %>
-</p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @link.url %>
-</p>
 
 <div class= "btn-group">
 <%= link_to 'To Website', @link.url, class: "btn btn-primary" %>
