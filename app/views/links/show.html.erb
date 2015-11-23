@@ -1,7 +1,10 @@
+
+
+
 <div class="panel panel-default">
 	<div class="panel-body">
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-12">
 				
 				<div class="table-responsive">	
 							<table class="table">
@@ -10,7 +13,7 @@
 									<td>	<h1>
 					<a href="<%= @link.url %>"><%= @link.title %></a>
 					<small> by <%= @link.user.email %> </small></h1>
-									</td>
+									</td><td>	<%= image_tag @link.image.url(:medium) %></td>
 
 								</tr>
 
@@ -24,12 +27,19 @@
   									<%= @link.url %></td>
 								</tr>
 								<tr>
-									<td></td>
+									
+								</tr>
+
+								<tr>
+									
+								
+
+
 								</tr>
 								</tbody>
 
 
-
+							
 
 							</table>
 						
