@@ -1,11 +1,27 @@
-<% @links.each do |link| %>
-<div class="Link row clearfix">
-<h2>
-<%= image_tag link.image.url(:medium) %><br>
-  <%= link_to link.title, link %> <br>
-  <small class="author"> Posted <%= time_ago_in_words(link.created_at) %> by <%= link.user.email %> </small>
+<% if !user_signed_in? %>
+<div class="jumbotron">
+	<h1>A Web Critique App by Danny Rosenfeld</h1>
+<p>Sign up to post your Portfolio site and recieve feedback from other developers </p>
+<p> <%= link_to "Sign up and have your Portfolio reviewed", new_user_registration_path, class:"btn btn-primary btn-lg" %> </p>
 
-
-</h2>
 </div>
+<% end %>
+
+
+<div class="container">
+<% @links.each do |link| %>
+	<div class="Link row clearfix">
+		<h2>
+			<div class="col-md-4"><%= image_tag link.image.url(:medium) %></div>
+				<div class="col-md-5">
+ 		 			<%= link_to link.title, link %> </div>
+  						<div class="col-md-5">
+  							<small class="author"> Posted <%= time_ago_in_words(link.created_at) %> by <%= link.user.email %> 				
+
+  							</small>
+		  				</div>
+		</h2>
+	</div>
+
 <% end%>
+</div>
