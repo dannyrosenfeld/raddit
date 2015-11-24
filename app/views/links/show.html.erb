@@ -31,10 +31,6 @@
 								</tr>
 
 								<tr>
-									
-								
-
-
 								</tr>
 								</tbody>
 
@@ -42,8 +38,26 @@
 							
 
 							</table>
+							<%= link_to "Write a Review", new_link_review_path(@link) %>
 						
 				</div>
+			</div>
+
+			<div class="col-md-7 col-md-offset-1">
+				<h1 class="review_title"><%= @link.title %></h1>
+				<p><%= @link.url %></p>
+				<% if @reviews.blank? %>
+				<h3>This portfolio hasn't been reviewed yet </h3>
+				<%= link_to "Write Review", new_link_review_path(@link), class: "btn btn-danger" %>
+				<% else %>
+				<% @reviews.each do |review| %>
+				<div class="reviews">
+					<p><%= review.rating %></p>
+					<p><%= review.comment %></p>
+
+				</div>
+				<% end %>
+				<% end %>
 			</div>
 		</div>
 	</div>

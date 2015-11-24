@@ -11,6 +11,8 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
+    @reviews = Review.where(link_id: @link.id).order("created_at DESC")
+
   end
 
   # GET /links/new
