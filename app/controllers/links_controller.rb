@@ -13,6 +13,13 @@ class LinksController < ApplicationController
   def show
     @reviews = Review.where(link_id: @link.id).order("created_at DESC")
 
+
+    if @reviews.blank?
+        @avg_review = 0
+      else
+        @avg_review = @reviews.average(:rating).round(2)
+     end
+
   end
 
   # GET /links/new
@@ -74,4 +81,5 @@ class LinksController < ApplicationController
     def link_params
       params.require(:link).permit(:title, :url, :image)
     end
+
 end
