@@ -15,26 +15,44 @@
 												<small> by <%= @link.user.email %> </small></h1>
 													</td>
 														<td>	<%= image_tag @link.image.url(:medium) %></td>
-														<td class="star-rating" data-score= <%= @avg_review %> > </div> 
-														<em><%= "#{@reviews.length} reviews" %></em>
+														
 
 
-														</td>
+															</tr>
 
 
-								</tr>
-
-
-								<tr>
-  									<td><strong>Title:</strong>
+															<tr>
+  															<td><strong>Title:</strong>
   									<%= @link.title %></td>
+
+									
+										<td>
+  									<div class="star-rating col-md-offset-4" data-score= <%= @avg_review %> > 
+  									</div> 
+									
+
+
+									</td>
 								</tr>
 								<tr>					
  									<td><strong>Url:</strong>
   									<%= @link.url %></td>
+  									<td><div class="col-md-offset-4"><em><%= "#{@reviews.length} reviews" %></em></div></td>
 								</tr>
 								<tr>
-									
+										
+									<td><% if @reviews.blank? %>
+				<h3>This portfolio hasn't been reviewed yet </h3>
+				<%= link_to "Write Review", new_link_review_path(@link), class: "btn btn-danger" %>
+				<% else %>
+				<% @reviews.each do |review| %>
+				<div class="reviews">
+					<div class="star-rating" data-score= <%= review.rating %> > </div>
+					<p><%= review.comment %></p>
+
+				</div>
+				<% end %>
+				<% end %></td>	
 								</tr>
 
 								<tr>
@@ -47,24 +65,14 @@
 							</table>
 							<%= link_to "Write a Review", new_link_review_path(@link) %>
 						
-				</div>
+			
+
+			<div>
+				<h1 class="review_title"></h1>
+				<p>
+			
+					</div>
 			</div>
-
-			<div class="col-md-7 col-md-offset-1">
-				<h1 class="review_title"><%= @link.title %></h1>
-				<p><%= @link.url %></p>
-				<% if @reviews.blank? %>
-				<h3>This portfolio hasn't been reviewed yet </h3>
-				<%= link_to "Write Review", new_link_review_path(@link), class: "btn btn-danger" %>
-				<% else %>
-				<% @reviews.each do |review| %>
-				<div class="reviews">
-					<div class="star-rating" data-score= <%= review.rating %> > </div>
-					<p><%= review.comment %></p>
-
-				</div>
-				<% end %>
-				<% end %>
 			</div>
 		</div>
 	</div>

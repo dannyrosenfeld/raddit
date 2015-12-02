@@ -19,7 +19,7 @@
 
 <% if user_signed_in? %>
 <ul class="nav navbar-nav navbar-right">
-	<li><%= link_to 'Post a link!', new_link_path %></li>
+	<li><%= link_to 'Post Portfolio', new_link_path %></li>
 	<li><%= link_to 'Settings', edit_user_registration_path %></li>
 	<li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </li>
   
@@ -31,12 +31,7 @@
 </p>
 
 <% end %>
-  <form class="navbar-form navbar-right" role="search">
-<div class="form-group">
-<input type="text" class="form-control" placeholder="Search">
-</div>
-<button type="submit" class="btn btn-default">Submit</button>
-  </form>
+ 
 
 
 
